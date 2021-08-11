@@ -1,0 +1,14 @@
+{% extends "app/layout.html" %}
+{% block body %}
+<div class="container">
+<h1>Busqueda de pedidos de Reparación</h1>
+
+<form method="POST" action="">
+{% csrf_token %}
+<label for="pedidos">Ingrese su DNI para buscar el pedido</label>
+<input type="text" id="pedidos" name="dni" value="">
+<button type="submit" class="btn btn-primary">Enviar</button>
+
+</form>
+</div>
+{% endblock %}
