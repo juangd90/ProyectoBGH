@@ -1,7 +1,44 @@
 {% extends "app/layout.html" %}
 <h1>Resultados</h1>
 {% block body %}
-{{dni}}
-
+{% if pedido_list %}
+<div class="table-responsive">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre y apellido</th>
+        <th scope="col">Fecha del pedido</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for p in pedido_list %}
+      <tr>
+        <th scope="row">1</th>
+        <td>{{p.usuario.nombre}} {{p.usuario.apellido}}</td>
+        <td>{{p.fecha_ingreso}}</td>
+        <td>{{p.detalle}}</td>
+        <td>{{p.estado}}</td>
+      </tr>
+      {% endfor %}
+     <!-- <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>-->
+    </tbody>
+  </table>
+</div>
+{% else %}
+<h2>Pedidos no encontrados</h2>
+{% endif %}
 
 {% endblock %}

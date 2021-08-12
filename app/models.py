@@ -1,5 +1,6 @@
 from datetime import date
 from django.db import models
+from django.db.models.enums import Choices
 from django.utils import timezone
 # Create your models here.
 marcas=(
@@ -13,6 +14,11 @@ opciones=(
     ("Si","Si"),
     ("No","No")
 )
+estado=(
+    ("En proceso","En proceso"),
+    ("Finalizado","Finalizado"),
+    ("Reparado","Reparado")
+)
 class Usuario(models.Model):
     nombre=models.CharField(max_length=64)
     apellido=models.CharField(max_length=64)
@@ -22,11 +28,12 @@ class Usuario(models.Model):
         return f"{self.nombre} {self.apellido}"
 
 class Pedido(models.Model):
-    fecha_ingreso=models.DateTimeField()
-    fecha_salida=models.DateTimeField(null=False,blank=True)
+    fecha_ingreso=models.DateTimeField()    
     marca=models.CharField(max_length=64,choices=marcas,default="BGH")
     garantia=models.CharField(max_length=64,choices=opciones,default="Si")
     detalle=models.CharField(max_length=200)
+    comentarios=models.CharField(max_length=200,blank=True)
+    estado=models.CharField(max_length=64,choices=estado,default="En proceso",)
     monto=models.FloatField()
     usuario=models.ForeignKey(Usuario,on_delete=models.CASCADE)
     def __str__(self):
