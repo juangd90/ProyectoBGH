@@ -22,4 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name="index"),
     path('pedidos',views.listarPedidos,name="pedidos"),
+    path('login/',views.login_admin,name="login"),
+    path('admin_pedidos/',views.PedidosListado.as_view(template_name='app/listado.html')),
+    path('admin_crear/',views.CrearPedido.as_view(template_name="app/crear.html")),
+    path('admin_pedidos/eliminar/<int:id>',views.EliminarPedido.as_view(),name="eliminar"),
+
+    
 ]

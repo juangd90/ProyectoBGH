@@ -1,0 +1,15 @@
+{% extends 'app/layout.html' %}
+
+{% block body %}
+<div class="container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Usuario</label>
+        <p><input type="text" name="username"></p>
+        <label for="password">Contraseña</label> cas
+        <p><input type="password" name="password"  ></p>
+        <input class="btn btn-success" type="submit" value="Ingresar">
+        
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "app/layout.html" %}
+<h1>Pedidos cargados</h1>
+{% block body %}
+
+<div class="table-responsive">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre y apellido</th>
+        <th scope="col">Fecha del pedido</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Garantia</th>
+        <th scope="col">Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for p in object_list %}
+      <tr>
+        <th scope="row">1</th>
+        <td>{{p.usuario.nombre}} {{p.usuario.apellido}}</td>
+        <td>{{p.fecha_ingreso}}</td>
+        <td>{{p.detalle}}</td>
+        <td>{{p.estado}}</td>
+        <td>{{p.marca}}</td>
+        <td>{{p.garantia}}</td>
+        <td>${{p.monto}}</td>
+        <td>
+            <form method="POST" action="eliminar/{{p.id}}">
+            {% csrf_token %}
+            <div class="btn-group">
+                <a href="detalle/{{p.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{p.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+            Eliminar
+            </button>
+            </div>
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
