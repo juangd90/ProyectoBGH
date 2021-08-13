@@ -55,18 +55,15 @@ class CrearPedido(LoginRequiredMixin,CreateView):
     form=Pedido
     fields="__all__"#para que django liste todos los campos
     success_message="Pedido creado correctamente"
-
-    def get_success_url(self):
-        return redirect("app/listado.html")
+    success_url= reverse_lazy('admin_pedidos')
+    
 
 class ActualizarPedido(LoginRequiredMixin,UpdateView):
     model=Pedido
     form=Pedido
     fields="__all__"
-    success_message="Pedido actualizado correctamente"
-
-    def get_success_url(self):
-        return redirect("app/listado.html")
+    template_name="app/editar.html"
+    success_url= reverse_lazy('admin_pedidos')
 
 
 

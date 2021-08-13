@@ -1,3 +1,27 @@
-{% block body%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+  
+ 
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %}
+<div class="container">
+{% block body %}
+<div class="col d-flex justify-content-center align-items-center ">
+	<form method="post" class="col-8" novalidate>
+		{% csrf_token %}
+    {{form | crispy}}
+	
+		
+	    <input type="submit" class="btn btn-info" value="Guardar">
+	</form>
+</div>
 
-  {% endblock %}
+{% endblock %}
+</div>
+</body>
+</html>

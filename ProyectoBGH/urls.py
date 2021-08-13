@@ -24,8 +24,9 @@ urlpatterns = [
     path('pedidos',views.listarPedidos,name="pedidos"),
     path('login/',views.login_admin,name="login"),
     path('admin_pedidos/',views.PedidosListado.as_view(template_name='app/listado.html'),name="admin_pedidos"),
-    path('admin_crear/',views.CrearPedido.as_view(template_name="app/crear.html")),
+    path('admin_crear/',views.CrearPedido.as_view(template_name="app/crear.html"),name="crear"),
     path('admin_pedidos/eliminar/<int:pk>',views.EliminarPedido.as_view(),name="eliminar"),
+    path('admin_pedidos/editar/<int:pk>',views.ActualizarPedido.as_view(),name="editar"),
 
     
 ]
