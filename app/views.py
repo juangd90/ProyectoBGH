@@ -2,11 +2,13 @@ from django import http,forms
 from django.db.models import fields
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
+from django.urls.base import reverse_lazy
 from .models import *
 from django.contrib.auth import login,logout,authenticate
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 # Create your views here.
 def index(request):
     return render(request,"app/index.html")
@@ -44,7 +46,7 @@ def login_admin(request):
        return render(request,'app/login.html',context)
 
 class PedidosListado(LoginRequiredMixin,ListView):
-    login_url='login/'
+    login_url='login'
     model=Pedido
     template_name='app/listado.html'
 
@@ -66,14 +68,14 @@ class ActualizarPedido(LoginRequiredMixin,UpdateView):
     def get_success_url(self):
         return redirect("app/listado.html")
 
+
+
 class EliminarPedido(LoginRequiredMixin,DeleteView):
     model=Pedido
     form=Pedido
     fields="__all__"
-
-    def get_success_url(self): 
-        success_message = 'Pedido eliminado correctamente !'            
-        return redirect('app/listado.html') 
+    success_url= reverse_lazy('admin_pedidos')
+   
 
 
 
