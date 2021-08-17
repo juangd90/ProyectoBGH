@@ -49,7 +49,7 @@
             <form method="POST" action="eliminar/{{p.id}}">
             {% csrf_token %}
             <div class="btn-group">
-                <a href="detalle/{{p.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                <a href="{% url 'detalle' p.id %}" title="Ver" type="button" class="btn btn-success">Ver </a>
             <a href="{% url 'editar' p.id %}" title="Editar" type="button" class="btn btn-primary">Editar </a>
             
             <button class="btn btn-danger" onclick="return eliminar();" type="submit">

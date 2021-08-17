@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "app/layout.html" %}
+    {% block body %}
+    <h4>Detalles</h4>
+     
+    <p><span class="txt_negrita">Nombre y Apellido Cliente: </span><strong>{{object.usuario.nombre}} {{object.usuario.apellido}}</p></strong>
+    <p><span class="txt_negrita">Fecha de ingreso: </span><strong>{{object.fecha_ingreso}}</p></strong> 
+    <p><span class="txt_negrita">Estado: </span><strong>{{object.estado}}</p></strong> 
+    
+    <p><span class="txt_negrita">Detalle: </span> <strong>{{object.detalle}}</p></strong> 
+    <p><span class="txt_negrita">Garantia: </span><strong>{{object.garantia}}</p></strong> 
+    <p><span class="txt_negrita">Monto: $</span><strong>{{object.monto}}</p></strong> 
+     
+    <!-- Botón para volver a la vista principal (Home) -->
+    <a href="../" type="submit" class="btn btn-primary">Volver</a>
+    {% endblock %} 
+</body>
+</html>

@@ -73,6 +73,9 @@ class EliminarPedido(LoginRequiredMixin,DeleteView):
     fields="__all__"
     success_url= reverse_lazy('admin_pedidos')
    
+class DetallePedido(LoginRequiredMixin,DetailView):
+    model=Pedido
+    template_name='app/detalle.html'   
 
 
 
