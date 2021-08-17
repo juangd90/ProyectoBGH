@@ -1,0 +1,14 @@
+h1{
+    color: #9c9eb4;
+
+}
+form{
+    padding-left: 15px;
+    padding-top: 15px;
+}
+table,th,td{
+    padding-left: 15px;
+    border: 1px solid black;
+    align-items: center;
+    text-align: center;
+}

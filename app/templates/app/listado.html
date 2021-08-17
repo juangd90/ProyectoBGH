@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
         function eliminar() {
-          var x = confirm("Eliminar Producto ?");
+          var x = confirm("Eliminar Pedido ?");
           if (x)
             return true;
           else
@@ -37,7 +37,7 @@
     <tbody>
         {% for p in object_list %}
       <tr>
-        <th scope="row">1</th>
+        <th scope="row">{{p.id}}</th>
         <td>{{p.usuario.nombre}} {{p.usuario.apellido}}</td>
         <td>{{p.fecha_ingreso}}</td>
         <td>{{p.detalle}}</td>
@@ -49,7 +49,7 @@
             <form method="POST" action="eliminar/{{p.id}}">
             {% csrf_token %}
             <div class="btn-group">
-                <a href="{% url 'detalle' p.id %}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                <a href="{% url 'detalle' p.id %}" title="Ver más info" type="button" class="btn btn-success">Ver </a>
             <a href="{% url 'editar' p.id %}" title="Editar" type="button" class="btn btn-primary">Editar </a>
             
             <button class="btn btn-danger" onclick="return eliminar();" type="submit">

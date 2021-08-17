@@ -18,7 +18,8 @@ opciones=(
 estado=(
     ("En proceso","En proceso"),
     ("Finalizado","Finalizado"),
-    ("Reparado","Reparado")
+    ("Reparado","Reparado"),
+    ("Listo para retirar","Listo para retirar")
 )
 class Usuario(models.Model):
     nombre=models.CharField(max_length=64)
@@ -36,7 +37,7 @@ class Pedido(models.Model):
     detalle=models.CharField(max_length=200)
     comentarios=models.CharField(max_length=200,blank=True)
     estado=models.CharField(max_length=64,choices=estado,default="En proceso",)
-    monto=models.FloatField()
+    monto=models.CharField(max_length=5,blank=True)
     usuario=models.ForeignKey(Usuario,on_delete=models.CASCADE)
     def __str__(self):
       return  f"Pedido #{self.id} con ingreso el {self.fecha_ingreso} del cliente {self.usuario}- DNI {self.usuario.dni}"

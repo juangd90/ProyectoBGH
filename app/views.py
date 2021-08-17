@@ -8,7 +8,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
+from django.contrib import messages
 # Create your views here.
 def index(request):
     return render(request,"app/index.html")
@@ -51,10 +51,10 @@ class PedidosListado(LoginRequiredMixin,ListView):
     template_name='app/listado.html'
 
 class CrearPedido(LoginRequiredMixin,CreateView):
+    login_url='login'
     model=Pedido
     form=Pedido
     fields="__all__"#para que django liste todos los campos
-    success_message="Pedido creado correctamente"
     success_url= reverse_lazy('admin_pedidos')
     
 
@@ -76,6 +76,18 @@ class EliminarPedido(LoginRequiredMixin,DeleteView):
 class DetallePedido(LoginRequiredMixin,DetailView):
     model=Pedido
     template_name='app/detalle.html'   
+
+def logout_admin(request):
+    logout(request)
+    messages.info(request,"Deslogueado de manera correcta")
+    return redirect('index')
+
+class CrearUsuario(LoginRequiredMixin,CreateView):
+    model=Usuario
+    form=Usuario
+    fields="__all__"
+    success_url= reverse_lazy('crear')
+            
 
 
 

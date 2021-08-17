@@ -1,15 +1,27 @@
-{% extends 'app/layout.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de usuario administrador</title>
+</head>
+<body>
+    {% extends 'app/layout.html' %}
 
 {% block body %}
-<div class="container">
+
+<div class="container" >
     <form method="POST" action="">
         {% csrf_token %}
         <label for="username">Usuario</label>
         <p><input type="text" name="username"></p>
         <label for="password">Contraseña</label> 
         <p><input type="password" name="password"  ></p>
-        <input class="btn btn-success" type="submit" value="Ingresar">
+        <input class="btn btn-primary" type="submit" value="Ingresar">
         
     </form>
 </div>
 {% endblock %}
+</body>
+</html>
