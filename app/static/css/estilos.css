@@ -12,3 +12,7 @@ table,th,td{
     align-items: center;
     text-align: center;
 }
+
+.carousel .item {
+    height: 300px;
+  }

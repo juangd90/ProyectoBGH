@@ -2,6 +2,7 @@
 {% load static %}
 <h1>Resultados</h1>
 {% block body %}
+<div class="container">
 {% if pedido_list %}
 <div class="table-responsive">
 <table class=" table table-info" id="resultados">
@@ -23,7 +24,7 @@
         <td>{{p.fecha_ingreso}}</td>
         <td>{{p.detalle}}</td>
         <td>{{p.estado}}</td>
-        <td>{{p.monto}}</td>
+        <td>${{p.monto}}</td>
       </tr>
       {% endfor %}
     
@@ -33,5 +34,5 @@
 {% else %}
 <h2>Pedidos no encontrados</h2>
 {% endif %}
-
+</div>
 {% endblock %}

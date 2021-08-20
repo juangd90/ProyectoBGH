@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<body>
+
     {% extends "app/layout.html" %}
     {% load crispy_forms_tags %}
+    
 {% block body %}
+<div class="container">
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     
@@ -20,6 +14,6 @@
     <a href="../" type="submit" class="btn btn-primary">Volver</a>
    
   </form>
+</div>
 {% endblock %}
-</body>
-</html>
+
