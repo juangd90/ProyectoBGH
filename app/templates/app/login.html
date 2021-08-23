@@ -10,15 +10,17 @@
     {% extends 'app/layout.html' %}
 
 {% block body %}
-
+<h3>Ingrese usuario y contraseña de Admin</h3>
 <div class="container" >
     <form method="POST" action="">
         {% csrf_token %}
         <label for="username">Usuario</label>
-        <p><input type="text" name="username"></p>
+        <p><i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" name="username"></p>
         <label for="password">Contraseña</label> 
-        <p><input type="password" name="password"  ></p>
-        <input class="btn btn-primary" type="submit" value="Ingresar">
+        <p><i class="fa fa-key" aria-hidden="true"></i>
+            <input type="password" name="password"  ></p>
+          <input class="btn btn-primary" type="submit" value="Ingresar">
         
     </form>
 </div>

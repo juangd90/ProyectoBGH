@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin_pedidos/eliminar/<int:pk>',views.EliminarPedido.as_view(),name="eliminar"),
     path('admin_pedidos/editar/<int:pk>',views.ActualizarPedido.as_view(),name="editar"),
     path('admin_pedidos/detalle/<int:pk>',views.DetallePedido.as_view(),name="detalle"),
+    
 
     
 ]

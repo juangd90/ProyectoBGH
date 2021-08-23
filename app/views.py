@@ -33,7 +33,7 @@ def listarPedidos(request):
 
 def login_admin(request):
    if request.user.is_authenticated:
-        return redirect('app/index.html')
+        return redirect('index')
    else:
        if request.method=="POST":
         username=request.POST.get('username')

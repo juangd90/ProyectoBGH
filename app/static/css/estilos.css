@@ -13,6 +13,23 @@ table,th,td{
     text-align: center;
 }
 
-.carousel .item {
-    height: 300px;
+.bx-wrapper img, .bx-viewport{
+    max-width: 100%;
+    display: block;
+
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img{
+    width: auto;
+    height: 225px;
+    max-height: 225px;
+    align-content: center;
   }
+  
+ #marcas img{
+     align-items: baseline;
+     padding: auto;
+     border-style:  groove;
+     
+ }
+ 
