@@ -26,6 +26,7 @@ class Usuario(models.Model):
     apellido=models.CharField(max_length=64)
     dni=models.IntegerField()
     celular=models.CharField(max_length=10)
+    domicilio=models.CharField(max_length=64,default="")
     #pedidos=models.ManyToManyField(Pedido,blank=True)
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
@@ -41,7 +42,19 @@ class Pedido(models.Model):
     usuario=models.ForeignKey(Usuario,on_delete=models.CASCADE)
     def __str__(self):
       return  f"Pedido #{self.id} con ingreso el {self.fecha_ingreso} del cliente {self.usuario}- DNI {self.usuario.dni}"
+
+
+class pedidoNoUsuario(models.Model):
+    nombre_y_apellido=models.CharField(max_length=64)
+    celular=models.CharField(max_length=10)
+    retiro_en_domicilio=models.CharField(max_length=2,choices=opciones,default="Si")
+    domicilio=models.CharField(max_length=64,default="")
+    barrio=models.CharField(max_length=64,default="")
+    comentarios=models.TextField(max_length=300,default="")
     
+    def __str__(self):
+        return f"El cliente {self.nombre_y_apellido} cargó un pedido"
+
 
 
 

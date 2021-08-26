@@ -87,7 +87,13 @@ class CrearUsuario(LoginRequiredMixin,CreateView):
     form=Usuario
     fields="__all__"
     success_url= reverse_lazy('crear')
-            
+
+class PedidoNoUsuario(CreateView):
+    model=pedidoNoUsuario
+    form=pedidoNoUsuario
+    fields="__all__"#para que django liste todos los campos
+    success_url= reverse_lazy('index')
+
 
 
 
